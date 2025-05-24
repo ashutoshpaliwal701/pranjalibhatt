@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+    
+    --primary: 239 246 255;
+    --primary-foreground: 59 130 246;
+    
+    --secondary: 243 244 246;
+    --secondary-foreground: 107 114 128;
+    
+    --accent: 237 233 254;
+    --accent-foreground: 139 92 246;
+    
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+    
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 59 130 246;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 241 245 249;
+    
+    --primary: 30 64 175;
+    --primary-foreground: 219 234 254;
+    
+    --secondary: 51 65 85;
+    --secondary-foreground: 226 232 240;
+    
+    --accent: 124 58 237;
+    --accent-foreground: 243 232 255;
+    
+    --card: 30 41 59;
+    --card-foreground: 241 245 249;
+    
+    --popover: 30 41 59;
+    --popover-foreground: 241 245 249;
+    
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 96 165 250;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  ::selection {
+    @apply bg-primary-foreground/20 text-foreground;
+  }
+  
+  .h1 {
+    @apply text-4xl font-bold md:text-5xl;
+  }
+  
+  .h2 {
+    @apply text-3xl font-bold md:text-4xl;
+  }
+  
+  .h3 {
+    @apply text-2xl font-bold md:text-3xl;
+  }
+  
+  .h4 {
+    @apply text-xl font-bold md:text-2xl;
+  }
+  
+  section {
+    @apply py-12 md:py-20;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-heading {
+    @apply mb-10 text-center;
+  }
+  
+  .section-title {
+    @apply h2 mb-3;
+  }
+  
+  .section-subtitle {
+    @apply text-secondary-foreground max-w-2xl mx-auto;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-foreground text-white hover:bg-primary-foreground/90 shadow;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-foreground text-white hover:bg-accent-foreground/90;
+  }
+  
+  .btn-outline {
+    @apply border border-input bg-background hover:bg-secondary hover:text-secondary-foreground;
+  }
+  
+  .btn-ghost {
+    @apply hover:bg-secondary hover:text-secondary-foreground;
+  }
+  
+  .btn-sm {
+    @apply h-8 rounded-md px-3 text-xs;
+  }
+  
+  .btn-md {
+    @apply h-10 px-4 py-2;
+  }
+  
+  .btn-lg {
+    @apply h-12 rounded-md px-6 text-base;
+  }
+  
+  .card {
+    @apply rounded-lg border border-border bg-card text-card-foreground shadow-sm;
+  }
+  
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
+  }
+  
+  .card-title {
+    @apply text-xl font-semibold leading-none tracking-tight;
+  }
+  
+  .card-description {
+    @apply text-sm text-secondary-foreground;
+  }
+  
+  .card-content {
+    @apply p-6 pt-0;
+  }
+  
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
+  }
+}
+
+/* Animations and transitions */
+.fade-in {
+  @apply opacity-0 transition-opacity duration-500 ease-in-out;
+}
+
+.fade-in.visible {
+  @apply opacity-100;
+}
+
+.slide-up {
+  @apply transform translate-y-10 opacity-0 transition-all duration-500 ease-out;
+}
+
+.slide-up.visible {
+  @apply transform translate-y-0 opacity-100;
+}
